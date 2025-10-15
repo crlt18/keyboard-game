@@ -6,15 +6,16 @@ using Unity.Collections;
 public class KeyManager : MonoBehaviour
 {
     public float flashDuration = 0.2f;
-    public KeyCode[] playableKeys;
+    public HashSet<KeyCode> playableKeys = new HashSet<KeyCode>();
+    public List<KeyCode> destroyedKeys = new List<KeyCode>();
     public KeyCode lastKeyPressed;
     public HashSet<string> pressedKeys = new HashSet<string> ();
     void Awake()
     {
-        playableKeys = new KeyCode[26];
+        playableKeys.Clear();
         for (int i = 0; i < 26; i++)
         {
-            playableKeys[i] = KeyCode.A + i;
+            playableKeys.Add(KeyCode.A + i);
         }
     }
 
@@ -24,18 +25,21 @@ public class KeyManager : MonoBehaviour
         {
             if (Input.GetKeyDown(key))
             {
-                string tag = key.ToString();
-                pressedKeys.Add(tag);
+                if (!destroyedKeys.Contains(key))
+                {
+                    string tag = key.ToString();
+                    pressedKeys.Add(tag);
 
-                GameObject keyObj = GameObject.FindWithTag(key.ToString()); //find the in game key which has the corresponding tag to the key that was pressed
-                if (keyObj != null)
-                {
-                    keyObj.GetComponent<SpriteRenderer>().color = Color.red;
-                    StartCoroutine(ResetColor(keyObj));
-                }
-                else
-                {
-                    return;
+                    GameObject keyObj = GameObject.FindWithTag(key.ToString()); //find the in game key which has the corresponding tag to the key that was pressed
+                    if (keyObj != null)
+                    {
+                        keyObj.GetComponent<SpriteRenderer>().color = Color.red;
+                        StartCoroutine(ResetColor(keyObj));
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
             }
         }

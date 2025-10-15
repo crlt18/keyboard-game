@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Bombs : MonoBehaviour
 {
@@ -44,7 +45,8 @@ public class Bombs : MonoBehaviour
 
         Destroy(target);
         GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
-
+        KeyCode keyToRemove = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.tag);
+        keyManager.destroyedKeys.Add(keyToRemove);
     }
 
 }
