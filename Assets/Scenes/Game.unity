@@ -1975,7 +1975,8 @@ MonoBehaviour:
   - {fileID: 314806013}
   - {fileID: 1332340308}
   - {fileID: 1808502484}
-  bombPrefab: {fileID: 7313505149106566920, guid: 658e07d034bf5264c86272653727f19d, type: 3}
+  targetPrefab: {fileID: 7313505149106566920, guid: 658e07d034bf5264c86272653727f19d, type: 3}
+  bombPrefab: {fileID: 445959262972859769, guid: 644b12df85ea64d4688892214d370f81, type: 3}
   spawnInterval: 2
 --- !u!4 &1264454916
 Transform:
