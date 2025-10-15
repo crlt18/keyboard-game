@@ -25,18 +25,26 @@ public class Bombs : MonoBehaviour
         GameObject targetKey = keyboard[Random.Range(0, keyboard.Count)];   //choose a random key
         Vector3 spawnPos = targetKey.transform.position;
         GameObject target = Instantiate(targetPrefab, spawnPos, Quaternion.identity);   //spawn a bomb on the chosen key
-        yield return new WaitForSeconds(2f);
+        keyManager.ClearPressedKeys();
+
+        float waitTime = 2f;
+        float elapsed = 0f;
+
+        while (elapsed < waitTime)
+        {
+            if (keyManager.pressedKeys.Contains(targetKey.tag))
+            {
+                Destroy(target);
+
+                yield break;
+            }
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
         Destroy(target);
-        if (keyManager.lastKeyPressed.ToString() != targetKey.tag)
-        {
-            GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
-            yield return new WaitForSeconds(1f);
-            Destroy(bomb);
-        }
-        else
-        {
-            //update score?
-        }
+        GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
+
     }
 
 }

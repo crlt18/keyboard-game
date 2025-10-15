@@ -1,11 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using Unity.Collections;
 
 public class KeyManager : MonoBehaviour
 {
     public float flashDuration = 0.2f;
     public KeyCode[] playableKeys;
     public KeyCode lastKeyPressed;
+    public HashSet<string> pressedKeys = new HashSet<string> ();
     void Awake()
     {
         playableKeys = new KeyCode[26];
@@ -21,7 +24,9 @@ public class KeyManager : MonoBehaviour
         {
             if (Input.GetKeyDown(key))
             {
-                lastKeyPressed = key;
+                string tag = key.ToString();
+                pressedKeys.Add(tag);
+
                 GameObject keyObj = GameObject.FindWithTag(key.ToString()); //find the in game key which has the corresponding tag to the key that was pressed
                 if (keyObj != null)
                 {
@@ -34,6 +39,11 @@ public class KeyManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ClearPressedKeys()
+    {
+        pressedKeys.Clear();
     }
 
     private IEnumerator ResetColor(GameObject keyObject)
