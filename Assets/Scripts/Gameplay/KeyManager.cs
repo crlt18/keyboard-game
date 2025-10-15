@@ -4,10 +4,20 @@ using System.Collections;
 public class KeyManager : MonoBehaviour
 {
     public float flashDuration = 0.2f;
+    public KeyCode[] playableKeys;
+
+    void Awake()
+    {
+        playableKeys = new KeyCode[26];
+        for (int i = 0; i < 26; i++)
+        {
+            playableKeys[i] = KeyCode.A + i;
+        }
+    }
 
     void Update()
     {
-        foreach (KeyCode key in System.Enum.GetValues(typeof(KeyCode)))  //for each key that exists
+        foreach (KeyCode key in playableKeys)  //for each key that exists
         {
             if (Input.GetKeyDown(key))
             {
@@ -17,6 +27,10 @@ public class KeyManager : MonoBehaviour
                     keyObj.GetComponent<SpriteRenderer>().color = Color.red;
 
                     StartCoroutine(ResetColor(keyObj));
+                }
+                else
+                {
+                    return;
                 }
             }
         }

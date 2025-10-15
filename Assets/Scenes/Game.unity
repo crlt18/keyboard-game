@@ -1304,6 +1304,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.2
+  playableKeys: 
 --- !u!1001 &770531634
 PrefabInstance:
   m_ObjectHideFlags: 0
