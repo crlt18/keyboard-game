@@ -10,6 +10,7 @@ public class Bombs : MonoBehaviour
     [SerializeField] private GameObject targetPrefab;
     [SerializeField] private GameObject bombPrefab;
     [SerializeField] private float spawnInterval;
+    [SerializeField] private float bombLife;
     [SerializeField] private KeyManager keyManager;
 
     private void Update()
@@ -28,10 +29,9 @@ public class Bombs : MonoBehaviour
         GameObject target = Instantiate(targetPrefab, spawnPos, Quaternion.identity);   //spawn a bomb on the chosen key
         keyManager.ClearPressedKeys();
 
-        float waitTime = 2f;
         float elapsed = 0f;
 
-        while (elapsed < waitTime)
+        while (elapsed < bombLife)
         {
             if (keyManager.pressedKeys.Contains(targetKey.tag))
             {
@@ -45,6 +45,7 @@ public class Bombs : MonoBehaviour
 
         Destroy(target);
         GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
+        keyboard.Remove(targetKey);
         KeyCode keyToRemove = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.tag);
         keyManager.destroyedKeys.Add(keyToRemove);
     }

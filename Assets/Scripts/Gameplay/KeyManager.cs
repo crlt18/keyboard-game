@@ -8,7 +8,6 @@ public class KeyManager : MonoBehaviour
     public float flashDuration = 0.2f;
     public HashSet<KeyCode> playableKeys = new HashSet<KeyCode>();
     public List<KeyCode> destroyedKeys = new List<KeyCode>();
-    public KeyCode lastKeyPressed;
     public HashSet<string> pressedKeys = new HashSet<string> ();
     void Awake()
     {
