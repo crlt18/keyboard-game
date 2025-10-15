@@ -1305,6 +1305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.2
   playableKeys: 
+  lastKeyPressed: 0
 --- !u!1001 &770531634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1978,6 +1979,7 @@ MonoBehaviour:
   targetPrefab: {fileID: 7313505149106566920, guid: 658e07d034bf5264c86272653727f19d, type: 3}
   bombPrefab: {fileID: 445959262972859769, guid: 644b12df85ea64d4688892214d370f81, type: 3}
   spawnInterval: 2
+  keyManager: {fileID: 666487933}
 --- !u!4 &1264454916
 Transform:
   m_ObjectHideFlags: 0

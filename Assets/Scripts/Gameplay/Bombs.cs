@@ -9,6 +9,7 @@ public class Bombs : MonoBehaviour
     [SerializeField] private GameObject targetPrefab;
     [SerializeField] private GameObject bombPrefab;
     [SerializeField] private float spawnInterval;
+    [SerializeField] private KeyManager keyManager;
 
     private void Update()
     {
@@ -26,9 +27,16 @@ public class Bombs : MonoBehaviour
         GameObject target = Instantiate(targetPrefab, spawnPos, Quaternion.identity);   //spawn a bomb on the chosen key
         yield return new WaitForSeconds(2f);
         Destroy(target);
-        GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
-        yield return new WaitForSeconds(1f);
-        Destroy(bomb);
+        if (keyManager.lastKeyPressed.ToString() != targetKey.tag)
+        {
+            GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
+            yield return new WaitForSeconds(1f);
+            Destroy(bomb);
+        }
+        else
+        {
+            //update score?
+        }
     }
 
 }

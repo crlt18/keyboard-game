@@ -5,7 +5,7 @@ public class KeyManager : MonoBehaviour
 {
     public float flashDuration = 0.2f;
     public KeyCode[] playableKeys;
-
+    public KeyCode lastKeyPressed;
     void Awake()
     {
         playableKeys = new KeyCode[26];
@@ -21,11 +21,11 @@ public class KeyManager : MonoBehaviour
         {
             if (Input.GetKeyDown(key))
             {
+                lastKeyPressed = key;
                 GameObject keyObj = GameObject.FindWithTag(key.ToString()); //find the in game key which has the corresponding tag to the key that was pressed
                 if (keyObj != null)
                 {
                     keyObj.GetComponent<SpriteRenderer>().color = Color.red;
-
                     StartCoroutine(ResetColor(keyObj));
                 }
                 else
