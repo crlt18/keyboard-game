@@ -67,7 +67,7 @@ public class Bombs : MonoBehaviour
         GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
         keyboard.Remove(targetKey);
         KeyCode keyToRemove = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.tag);
-        GameManager.Instance.destroyedKeys.Add(keyToRemove);
+        GameManager.Instance.availableKeys.Remove(keyToRemove);
     }
 
     private void LevelComplete()

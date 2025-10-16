@@ -14,7 +14,7 @@ public class KeyManager : MonoBehaviour
         {
             if (Input.GetKeyDown(key))
             {
-                if (!GameManager.Instance.destroyedKeys.Contains(key))
+                if (GameManager.Instance.availableKeys.Contains(key))
                 {
                     string tag = key.ToString();
                     pressedKeys.Add(tag);
