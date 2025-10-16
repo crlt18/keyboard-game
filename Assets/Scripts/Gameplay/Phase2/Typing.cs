@@ -1,9 +1,26 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
 public class Typing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerText;
+    [SerializeField] private GameObject bombPrefab;
+    public List<GameObject> keyboard = new List<GameObject>();
     private string typedText = "";
+
+    private void Start()
+    {
+        foreach (GameObject keyObj in keyboard)
+        {
+            KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), keyObj.tag);
+
+            if (!GameManager.Instance.availableKeys.Contains(key))
+            {
+                Vector3 spawnPos = keyObj.transform.position;
+                Instantiate(bombPrefab, spawnPos, Quaternion.identity);
+            }
+        }
+    }
 
     void Update()
     {
