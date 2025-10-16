@@ -12,17 +12,35 @@ public class Bombs : MonoBehaviour
     [SerializeField] private float spawnInterval;
     [SerializeField] private float bombLife;
     [SerializeField] private KeyManager keyManager;
+    [SerializeField] private float levelDuration;
+    private float levelTimer;
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > spawnInterval)
+        levelTimer += Time.deltaTime;
+
+        if (levelDuration > levelTimer)
         {
-            StartCoroutine(Gameplay());
-            timer = 0;
+            if (keyboard.Count < 1)
+            {
+                GameOver();
+                return;
+            }
+
+            timer += Time.deltaTime;
+
+            if (timer > spawnInterval)
+            {
+                StartCoroutine(SpawnBombs());
+                timer = 0;
+            }
+        }
+        else
+        {
+            LevelComplete();
         }
     }
-    private IEnumerator Gameplay()
+    private IEnumerator SpawnBombs()
     {
         GameObject targetKey = keyboard[Random.Range(0, keyboard.Count)];   //choose a random key
         Vector3 spawnPos = targetKey.transform.position;
@@ -48,6 +66,16 @@ public class Bombs : MonoBehaviour
         keyboard.Remove(targetKey);
         KeyCode keyToRemove = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.tag);
         keyManager.destroyedKeys.Add(keyToRemove);
+    }
+
+    private void LevelComplete()
+    {
+        Debug.Log("Level Complete");
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("Game Over");
     }
 
 }

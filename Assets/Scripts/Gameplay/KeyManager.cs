@@ -6,21 +6,12 @@ using Unity.Collections;
 public class KeyManager : MonoBehaviour
 {
     public float flashDuration = 0.2f;
-    public HashSet<KeyCode> playableKeys = new HashSet<KeyCode>();
     public List<KeyCode> destroyedKeys = new List<KeyCode>();
     public HashSet<string> pressedKeys = new HashSet<string> ();
-    void Awake()
-    {
-        playableKeys.Clear();
-        for (int i = 0; i < 26; i++)
-        {
-            playableKeys.Add(KeyCode.A + i);
-        }
-    }
 
     void Update()
     {
-        foreach (KeyCode key in playableKeys)  //for each key that exists
+        foreach (KeyCode key in GameManager.Instance.availableKeys)  //for each key that exists
         {
             if (Input.GetKeyDown(key))
             {
