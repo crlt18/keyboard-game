@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     private HashSet<KeyCode> AvailableKeys = new HashSet<KeyCode>();
     public HashSet<KeyCode> availableKeys { get; set; } = new HashSet<KeyCode>();
+
+    public List<KeyCode> destroyedKeys = new List<KeyCode>();
     public static GameManager Instance { get; private set; }
 
     public float level;

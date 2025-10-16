@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEditorInternal;
+using UnityEngine.SceneManagement;
 
 public class Bombs : MonoBehaviour
 {
@@ -65,12 +67,12 @@ public class Bombs : MonoBehaviour
         GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
         keyboard.Remove(targetKey);
         KeyCode keyToRemove = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.tag);
-        keyManager.destroyedKeys.Add(keyToRemove);
+        GameManager.Instance.destroyedKeys.Add(keyToRemove);
     }
 
     private void LevelComplete()
     {
-        Debug.Log("Level Complete");
+        SceneManager.LoadScene("Typing Phase");
     }
 
     private void GameOver()

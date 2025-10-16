@@ -6,7 +6,6 @@ using Unity.Collections;
 public class KeyManager : MonoBehaviour
 {
     public float flashDuration = 0.2f;
-    public List<KeyCode> destroyedKeys = new List<KeyCode>();
     public HashSet<string> pressedKeys = new HashSet<string> ();
 
     void Update()
@@ -15,7 +14,7 @@ public class KeyManager : MonoBehaviour
         {
             if (Input.GetKeyDown(key))
             {
-                if (!destroyedKeys.Contains(key))
+                if (!GameManager.Instance.destroyedKeys.Contains(key))
                 {
                     string tag = key.ToString();
                     pressedKeys.Add(tag);
