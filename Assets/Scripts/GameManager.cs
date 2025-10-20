@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public float level;
 
+    public int score;
+
     private void Awake()
     {
         level = 1;

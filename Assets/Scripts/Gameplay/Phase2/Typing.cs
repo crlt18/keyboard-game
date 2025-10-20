@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using UnityEngine.SocialPlatforms.Impl;
 public class Typing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private GameObject bombPrefab;
+    [SerializeField] private Dictionary dictionary;
     public List<GameObject> keyboard = new List<GameObject>();
     private string typedText = "";
 
@@ -45,6 +47,13 @@ public class Typing : MonoBehaviour
         }
 
         playerText.text = typedText;
+
+        if(dictionary.IsValidWord(typedText))
+        {
+            GameManager.Instance.score++;
+            typedText = "";
+        }
+ 
 
     }
 }
