@@ -18,7 +18,7 @@ public class Dictionary : MonoBehaviour
         TextAsset blacklistFile = Resources.Load<TextAsset>("Blacklist");
         if (blacklistFile == null)
         {
-            Debug.LogError("Words.txt not found");
+            Debug.LogError("Blacklist.txt not found");
             return;
         }
 

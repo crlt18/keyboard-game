@@ -51,6 +51,7 @@ public class Typing : MonoBehaviour
         if(dictionary.IsValidWord(typedText))
         {
             GameManager.Instance.score++;
+            Debug.Log(GameManager.Instance.score);
             typedText = "";
         }
  

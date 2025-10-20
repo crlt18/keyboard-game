@@ -2077,7 +2077,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flashDuration: 0.2
-  destroyedKeys: 
 --- !u!1 &707073299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,8 +3153,8 @@ MonoBehaviour:
   - {fileID: 1808502484}
   targetPrefab: {fileID: 3702900136751638161, guid: 658e07d034bf5264c86272653727f19d, type: 3}
   bombPrefab: {fileID: 5499099436458505999, guid: 1a8013c8170594449a6cb648757d5475, type: 3}
-  spawnInterval: 1.05
-  bombLife: 1
+  spawnInterval: 0.8
+  bombLife: 0.75
   keyManager: {fileID: 666487933}
   levelDuration: 10
 --- !u!4 &1264454916
@@ -4473,6 +4472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+  score: 0
 --- !u!4 &1909754724
 Transform:
   m_ObjectHideFlags: 0

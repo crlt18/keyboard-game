@@ -93,7 +93,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 1
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -106,18 +106,18 @@ MonoBehaviour:
       y: 21
       width: 938
       height: 592
-    m_Scale: {x: 0.858734, y: 0.85873395}
-    m_Translation: {x: 469, y: 299.1715}
+    m_Scale: {x: 0.5304326, y: 0.5304326}
+    m_Translation: {x: 469.0001, y: 296}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -546.15283
-      y: -348.38672
-      width: 1092.3057
-      height: 689.38696
+      x: -884.18414
+      y: -558.0351
+      width: 1768.368
+      height: 1116.0702
     m_MinimalGUI: 1
   m_defaultScale: 0.48854166
   m_LastWindowPixelSize: {x: 938, y: 613}
@@ -247,7 +247,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: feb10000
       m_LastClickedID: 0
-      m_ExpandedIDs: 1ec1ffff34eeffff0cfbffff
+      m_ExpandedIDs: 62a3ffffa8a6ffff1ec1ffff34eeffff0cfbffff00db0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -314,7 +314,7 @@ MonoBehaviour:
     m_CachedPref: -160
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 46222
+  m_LastInspectedObjectInstanceID: 51112
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -1232,7 +1232,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: f6b10000
     m_LastClickedID: 45558
-    m_ExpandedIDs: 00000000d8b10000f8b10000f4b3000000ca9a3b
+    m_ExpandedIDs: 00000000d8b1000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
