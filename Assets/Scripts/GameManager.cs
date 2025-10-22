@@ -3,17 +3,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private HashSet<KeyCode> AvailableKeys = new HashSet<KeyCode>();
-    public HashSet<KeyCode> availableKeys { get; set; } = new HashSet<KeyCode>();
+    public HashSet<KeyCode> availableKeys = new HashSet<KeyCode>();
     public static GameManager Instance { get; private set; }
 
-    public float level;
-
-    public int score;
+    [HideInInspector] public int level = 1;
+    [HideInInspector] public int score;
+    [HideInInspector] public float spawnInterval;
+    [HideInInspector] public float bombLife;
+    [HideInInspector] public float levelDuration;
 
     private void Awake()
     {
-        level = 1;
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -28,6 +28,23 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void ApplyDifficultySettings()
+    {
+        switch (level)
+        {
+            case 1: // easy
+                spawnInterval = 2.0f;
+                bombLife = 1.95f;
+                levelDuration = 30f;
+                break;
+            case 2: // normal
+                spawnInterval = 0.75f;
+                bombLife = 0.7f;
+                levelDuration = 30f;
+                break;
+        }
     }
 
 }

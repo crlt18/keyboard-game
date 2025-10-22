@@ -11,17 +11,14 @@ public class Bombs : MonoBehaviour
     private float timer;
     [SerializeField] private GameObject targetPrefab;
     [SerializeField] private GameObject bombPrefab;
-    [SerializeField] private float spawnInterval;
-    [SerializeField] private float bombLife;
     [SerializeField] private KeyManager keyManager;
-    [SerializeField] private float levelDuration;
     private float levelTimer;
 
     private void Update()
     {
         levelTimer += Time.deltaTime;
 
-        if (levelDuration > levelTimer)
+        if (GameManager.Instance.levelDuration > levelTimer)
         {
             if (keyboard.Count < 1)
             {
@@ -31,7 +28,7 @@ public class Bombs : MonoBehaviour
 
             timer += Time.deltaTime;
 
-            if (timer > spawnInterval)
+            if (timer > GameManager.Instance.spawnInterval)
             {
                 StartCoroutine(SpawnBombs());
                 timer = 0;
@@ -51,7 +48,7 @@ public class Bombs : MonoBehaviour
 
         float elapsed = 0f;
 
-        while (elapsed < bombLife)
+        while (elapsed < GameManager.Instance.bombLife)
         {
             if (keyManager.pressedKeys.Contains(targetKey.tag))
             {
