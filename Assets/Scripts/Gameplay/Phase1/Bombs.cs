@@ -1,18 +1,17 @@
-using System.Collections.Generic;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEditorInternal;
 using UnityEngine.SceneManagement;
 
 public class Bombs : MonoBehaviour
 {
     public List<GameObject> keyboard = new List<GameObject>();
     private float timer;
-    [SerializeField] private GameObject targetPrefab;
-    [SerializeField] private GameObject bombPrefab;
-    [SerializeField] private KeyManager keyManager;
     private float levelTimer;
+
+    [SerializeField] private KeyManager keyManager;
+    [SerializeField] private ObjectPooling targetPool;
+    [SerializeField] private ObjectPooling bombPool;
 
     private void Update()
     {
@@ -39,29 +38,40 @@ public class Bombs : MonoBehaviour
             LevelComplete();
         }
     }
+
     private IEnumerator SpawnBombs()
     {
+        if (keyboard.Count == 0) yield break;
+
+        
         GameObject targetKey = keyboard[Random.Range(0, keyboard.Count)];   //choose a random key
         Vector3 spawnPos = targetKey.transform.position;
-        GameObject target = Instantiate(targetPrefab, spawnPos, Quaternion.identity);   //spawn a bomb on the chosen key
+
+        
+        GameObject target = targetPool.Get();   //get target from pool
+        target.transform.position = spawnPos;
+
         keyManager.ClearPressedKeys();
 
         float elapsed = 0f;
 
         while (elapsed < GameManager.Instance.bombLife)
         {
-            if (keyManager.pressedKeys.Contains(targetKey.tag))
+            
+            if (keyManager.pressedKeys.Contains(targetKey.tag)) //if key is pressed, return target to pool
             {
-                Destroy(target);
-
+                targetPool.Return(target);
                 yield break;
             }
+
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        Destroy(target);
-        GameObject bomb = Instantiate(bombPrefab, spawnPos, Quaternion.identity);
+        targetPool.Return(target);
+
+        GameObject bomb = bombPool.Get();
+        bomb.transform.position = spawnPos;
         keyboard.Remove(targetKey);
         KeyCode keyToRemove = (KeyCode)System.Enum.Parse(typeof(KeyCode), targetKey.tag);
         GameManager.Instance.availableKeys.Remove(keyToRemove);
@@ -76,5 +86,4 @@ public class Bombs : MonoBehaviour
     {
         Debug.Log("Game Over");
     }
-
 }
