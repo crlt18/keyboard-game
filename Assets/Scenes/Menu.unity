@@ -131,14 +131,13 @@ GameObject:
   - component: {fileID: 13226413}
   - component: {fileID: 13226412}
   - component: {fileID: 13226411}
-  - component: {fileID: 13226410}
   m_Layer: 5
   m_Name: Easy
   m_TagString: easy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &13226409
 RectTransform:
   m_ObjectHideFlags: 0
@@ -159,18 +158,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: 185}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &13226410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 13226408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ac10a67c59dbe458f795bb2a8f8818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &13226411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 13226410}
+      - m_Target: {fileID: 1937470587}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: Easy
         m_Mode: 1
@@ -419,7 +406,6 @@ GameObject:
   - component: {fileID: 449117404}
   - component: {fileID: 449117403}
   - component: {fileID: 449117402}
-  - component: {fileID: 449117401}
   m_Layer: 5
   m_Name: GameMode2
   m_TagString: mode2
@@ -447,18 +433,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &449117401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449117399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ac10a67c59dbe458f795bb2a8f8818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &449117402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,9 +477,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 449117401}
+      - m_Target: {fileID: 1937470587}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: Normal
+        m_MethodName: Mode2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1056,14 +1030,13 @@ GameObject:
   - component: {fileID: 1034088546}
   - component: {fileID: 1034088545}
   - component: {fileID: 1034088544}
-  - component: {fileID: 1034088543}
   m_Layer: 5
   m_Name: Normal
   m_TagString: normal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1034088542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1084,18 +1057,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: -15}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1034088543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034088541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ac10a67c59dbe458f795bb2a8f8818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1034088544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,7 +1101,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1034088543}
+      - m_Target: {fileID: 1937470587}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: Normal
         m_Mode: 1
@@ -1202,7 +1163,6 @@ GameObject:
   - component: {fileID: 1900791126}
   - component: {fileID: 1900791125}
   - component: {fileID: 1900791124}
-  - component: {fileID: 1900791123}
   m_Layer: 5
   m_Name: GameMode1
   m_TagString: mode1
@@ -1230,18 +1190,6 @@ RectTransform:
   m_AnchoredPosition: {x: -3, y: 185}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1900791123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900791121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ac10a67c59dbe458f795bb2a8f8818, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1900791124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,9 +1234,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1900791123}
+      - m_Target: {fileID: 1937470587}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
-        m_MethodName: Easy
+        m_MethodName: Mode1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1348,6 +1296,7 @@ GameObject:
   - component: {fileID: 1937470585}
   - component: {fileID: 1937470584}
   - component: {fileID: 1937470583}
+  - component: {fileID: 1937470587}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1441,6 +1390,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1937470587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937470582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ac10a67c59dbe458f795bb2a8f8818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2003422669
 GameObject:
   m_ObjectHideFlags: 0
