@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public HashSet<KeyCode> availableKeys = new HashSet<KeyCode>();
     public static GameManager Instance { get; private set; }
 
+    [HideInInspector] public int gameMode = 1;
     [HideInInspector] public int level = 1;
     [HideInInspector] public int score;
     [HideInInspector] public float spawnInterval;
