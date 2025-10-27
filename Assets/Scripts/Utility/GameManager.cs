@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -33,6 +34,21 @@ public class GameManager : MonoBehaviour
 
     public void ApplyDifficultySettings()
     {
+        switch (gameMode)
+        {
+            case 1:
+                GameMode1Settings();
+                break;
+
+            case 2:
+                GameMode2Settings();
+                break;
+
+        }
+    }
+
+    private void GameMode1Settings()
+    {
         switch (level)
         {
             case 1: // easy
@@ -47,5 +63,22 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    private void GameMode2Settings()
+    {
+        switch (level)
+        {
+            case 1: // easy
+                spawnInterval = 2.0f;
+                bombLife = 1.95f;
+                levelDuration = 5f;
+                break;
+            case 2: // normal
+                spawnInterval = 0.5f;
+                bombLife = 0.7f;
+                levelDuration = 30f;
+                break;
+        }
+    }
+
 
 }

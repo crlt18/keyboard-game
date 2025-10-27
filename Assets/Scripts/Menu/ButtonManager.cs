@@ -33,12 +33,12 @@ public class ButtonManager : MonoBehaviour
     }
 
     public void Mode2()
-    {
+    { 
+        GameManager.Instance.gameMode = 2;
         mode1.gameObject.SetActive(false);
         mode2.gameObject.SetActive(false);
         easy.gameObject.SetActive(true);
         normal.gameObject.SetActive(true);
-        GameManager.Instance.gameMode = 2;
     }
     public void Easy()
     {
