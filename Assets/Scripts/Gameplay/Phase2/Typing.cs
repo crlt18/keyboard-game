@@ -1,12 +1,12 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
-using UnityEngine.SocialPlatforms.Impl;
 public class Typing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private GameObject bombPrefab;
     [SerializeField] private Dictionary dictionary;
+    private HashSet<string> typedWords = new HashSet<string>();
     public List<GameObject> keyboard = new List<GameObject>();
     private string typedText = "";
 
@@ -48,13 +48,18 @@ public class Typing : MonoBehaviour
 
         playerText.text = typedText;
 
-        if(dictionary.IsValidWord(typedText))
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            GameManager.Instance.score++;
-            Debug.Log(GameManager.Instance.score);
+            if (dictionary.IsValidWord(typedText) && !typedWords.Contains(typedText))
+            {
+                GameManager.Instance.score++;
+                Debug.Log(GameManager.Instance.score);
+                typedWords.Add(typedText);
+            }
+
             typedText = "";
         }
- 
+
 
     }
 }

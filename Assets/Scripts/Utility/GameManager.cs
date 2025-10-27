@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
             case 1: // easy
                 spawnInterval = 2.0f;
                 bombLife = 1.95f;
-                levelDuration = 30f;
+                levelDuration = 5f;
                 break;
             case 2: // normal
                 spawnInterval = 0.75f;
