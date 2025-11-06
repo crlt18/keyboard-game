@@ -6,13 +6,20 @@ public class GameManager : MonoBehaviour
     public HashSet<KeyCode> availableKeys = new HashSet<KeyCode>();
     public static GameManager Instance { get; private set; }
     [SerializeField] private Dictionary dictionary;
-    [HideInInspector] public int gameMode = 1;
     [HideInInspector] public int level = 1;
     [HideInInspector] public int score;
     [HideInInspector] public float spawnInterval;
     [HideInInspector] public float bombLife;
     [HideInInspector] public float levelDuration;
+    [HideInInspector] public GameMode gameMode;
     [SerializeField] private List<WordListSO> levelWordLists;
+    public enum GameMode
+    {
+        Arcade,
+        Story,
+        Endless,
+        Thematic
+    }
 
     private void Awake()
     {
@@ -36,11 +43,11 @@ public class GameManager : MonoBehaviour
     {
         switch (gameMode)
         {
-            case 1:
+            case GameMode.Arcade:
                 ArcadeModeSettings();
                 break;
 
-            case 2:
+            case GameMode.Story:
                 StoryModeSettings();
                 break;
 

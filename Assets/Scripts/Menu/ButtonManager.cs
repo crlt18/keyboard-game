@@ -23,18 +23,18 @@ public class ButtonManager : MonoBehaviour
         normal.gameObject.SetActive(false);
     }
 
-    public void Mode1()
+    public void Arcade()
     {
-        GameManager.Instance.gameMode = 1;
+        GameManager.Instance.gameMode = GameManager.GameMode.Arcade;
         mode1.gameObject.SetActive(false);
         mode2.gameObject.SetActive(false);
         easy.gameObject.SetActive(true);
         normal.gameObject.SetActive(true);
     }
 
-    public void Mode2()
+    public void Story()
     { 
-        GameManager.Instance.gameMode = 2;
+        GameManager.Instance.gameMode = GameManager.GameMode.Story;
         mode1.gameObject.SetActive(false);
         mode2.gameObject.SetActive(false);
         easy.gameObject.SetActive(true);

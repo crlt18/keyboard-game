@@ -74,12 +74,12 @@ public class Dictionary : MonoBehaviour
     {
         string lower = word.ToLower();
 
-        if (GameManager.Instance.gameMode == 1)
+        if (GameManager.Instance.gameMode == GameManager.GameMode.Arcade)
         {
             return wordDictionary.Contains(lower);
         }
 
-        if (GameManager.Instance.gameMode == 2)
+        if (GameManager.Instance.gameMode == GameManager.GameMode.Story)
         {
             return activeWordList.Contains(lower);
         }
