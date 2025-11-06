@@ -5,7 +5,6 @@ public class Typing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private GameObject bombPrefab;
-    [SerializeField] private Dictionary dictionary;
     private HashSet<string> typedWords = new HashSet<string>();
     public List<GameObject> keyboard = new List<GameObject>();
     private string typedText = "";
@@ -50,7 +49,7 @@ public class Typing : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            if (dictionary.IsValidWord(typedText) && !typedWords.Contains(typedText))
+            if (Dictionary.Instance.IsValidWord(typedText) && !typedWords.Contains(typedText))
             {
                 GameManager.Instance.score++;
                 Debug.Log(GameManager.Instance.score);

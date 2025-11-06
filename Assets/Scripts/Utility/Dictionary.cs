@@ -3,14 +3,35 @@ using UnityEngine;
 
 public class Dictionary : MonoBehaviour
 {
+    public static Dictionary Instance { get; private set; }
+
     public HashSet<string> wordDictionary;
+    public HashSet<string> activeWordList;  //the list of words that are valid in each level of story mode and thematic mode
     public HashSet<string> blacklist;
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+
         wordDictionary = new HashSet<string>();
         blacklist = new HashSet<string>();
         LoadWords();
+    }
+    public void SetActiveWords(WordListSO wordList)
+    {
+        activeWordList = new HashSet<string>();
+        foreach (string word in wordList.words)
+        {
+            activeWordList.Add(word.ToLower());
+        }
     }
 
     private void LoadWords()
@@ -51,6 +72,18 @@ public class Dictionary : MonoBehaviour
 
     public bool IsValidWord(string word)
     {
-        return wordDictionary.Contains(word.ToLower());
+        string lower = word.ToLower();
+
+        if (GameManager.Instance.gameMode == 1)
+        {
+            return wordDictionary.Contains(lower);
+        }
+
+        if (GameManager.Instance.gameMode == 2)
+        {
+            return activeWordList.Contains(lower);
+        }
+
+        return false;
     }
 }

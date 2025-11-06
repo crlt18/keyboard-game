@@ -1,18 +1,18 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public HashSet<KeyCode> availableKeys = new HashSet<KeyCode>();
     public static GameManager Instance { get; private set; }
-
+    [SerializeField] private Dictionary dictionary;
     [HideInInspector] public int gameMode = 1;
     [HideInInspector] public int level = 1;
     [HideInInspector] public int score;
     [HideInInspector] public float spawnInterval;
     [HideInInspector] public float bombLife;
     [HideInInspector] public float levelDuration;
+    [SerializeField] private List<WordListSO> levelWordLists;
 
     private void Awake()
     {
@@ -37,17 +37,17 @@ public class GameManager : MonoBehaviour
         switch (gameMode)
         {
             case 1:
-                GameMode1Settings();
+                ArcadeModeSettings();
                 break;
 
             case 2:
-                GameMode2Settings();
+                StoryModeSettings();
                 break;
 
         }
     }
 
-    private void GameMode1Settings()
+    private void ArcadeModeSettings()
     {
         switch (level)
         {
@@ -63,8 +63,10 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-    private void GameMode2Settings()
+    private void StoryModeSettings()
     {
+        Dictionary.Instance.SetActiveWords(levelWordLists[0]);
+
         switch (level)
         {
             case 1: // easy
