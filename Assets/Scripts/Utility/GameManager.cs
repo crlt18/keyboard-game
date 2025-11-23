@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float bombLife;
     [HideInInspector] public float levelDuration;
     [HideInInspector] public GameMode gameMode;
+    [HideInInspector] public HashSet<string> levelWords = new HashSet<string>();
     [SerializeField] private List<WordListSO> levelWordLists;
     public enum GameMode
     {
