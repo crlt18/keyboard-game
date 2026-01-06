@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Typing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerText;
+    [SerializeField] private TextMeshProUGUI scoredWords;
     [SerializeField] private GameObject bombPrefab;
     public List<GameObject> keyboard = new List<GameObject>();
     private string typedText = "";
@@ -61,6 +62,7 @@ public class Typing : MonoBehaviour
                 GameManager.Instance.score++;
                 Debug.Log(GameManager.Instance.score);
                 GameManager.Instance.levelWords.Add(typedText);
+                scoredWords.text = string.Join(", ", GameManager.Instance.levelWords);
             }
 
             typedText = "";
