@@ -34,6 +34,7 @@ TagManager:
   - normal
   - mode1
   - mode2
+  - mode3
   layers:
   - Default
   - TransparentFX
