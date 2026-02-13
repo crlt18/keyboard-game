@@ -6,6 +6,7 @@ public class Typing : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerText;
     [SerializeField] private TextMeshProUGUI scoredWords;
+    [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private GameObject bombPrefab;
     public List<GameObject> keyboard = new List<GameObject>();
     private string typedText = "";
@@ -29,6 +30,7 @@ public class Typing : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        timerText.text = timer.ToString();
         if (timer < 0)
         {
             SceneManager.LoadScene("Results");

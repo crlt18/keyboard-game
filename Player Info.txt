@@ -1,0 +1,1 @@
+Arcade Mode: Longer words give a higher multiplier. Saving keys gives a multiplier.
