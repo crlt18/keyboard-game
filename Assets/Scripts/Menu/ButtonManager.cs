@@ -54,5 +54,4 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 
-
 }

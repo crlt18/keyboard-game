@@ -10,11 +10,9 @@ public class Typing : MonoBehaviour
     [SerializeField] private GameObject bombPrefab;
     public List<GameObject> keyboard = new List<GameObject>();
     private string typedText = "";
-    private float timer;
 
     private void Start()
     {
-        timer = 10.0f;
         foreach (GameObject keyObj in keyboard)
         {
             KeyCode key = (KeyCode)System.Enum.Parse(typeof(KeyCode), keyObj.tag);
@@ -29,9 +27,9 @@ public class Typing : MonoBehaviour
 
     void Update()
     {
-        timer -= Time.deltaTime;
-        timerText.text = timer.ToString();
-        if (timer < 0)
+        GameManager.Instance.typingDuration -= Time.deltaTime;
+        timerText.text = GameManager.Instance.typingDuration.ToString();
+        if (GameManager.Instance.typingDuration < 0)
         {
             SceneManager.LoadScene("Results");
         }

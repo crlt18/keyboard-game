@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float spawnInterval;
     [HideInInspector] public float bombLife;
     [HideInInspector] public float levelDuration;
+    [HideInInspector] public float typingDuration;
     [HideInInspector] public GameMode gameMode;
     [HideInInspector] public HashSet<string> levelWords = new HashSet<string>();
     [SerializeField] private List<WordListSO> levelWordLists;
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
         }
 
         Instance = this;
+        typingDuration = 15f;
+        Debug.Log("Press Tab to skip scenes");
         DontDestroyOnLoad(gameObject);
     }
 
@@ -62,7 +65,7 @@ public class GameManager : MonoBehaviour
             case 1: // easy
                 spawnInterval = 2.0f;
                 bombLife = 1.95f;
-                levelDuration = 5f;
+                levelDuration = 30f;
                 break;
             case 2: // normal
                 spawnInterval = 0.75f;

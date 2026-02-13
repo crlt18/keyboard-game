@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5144720618286636460}
   - component: {fileID: 4254164131406858122}
+  - component: {fileID: -24956465178975144}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -45,12 +46,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dictionary: {fileID: 4292274096255333542, guid: faa0feabebfde584b8478cbe813cc7fd, type: 3}
-  gameMode: 1
   level: 0
   score: 0
   spawnInterval: 0
   bombLife: 0
   levelDuration: 0
+  typingDuration: 0
+  gameMode: 1
   levelWordLists:
   - {fileID: 11400000, guid: 61f6c6021f81e8c4eaee3974352ce23d, type: 2}
   - {fileID: 11400000, guid: 9a504bcb22c34eb4a91a5927833c09be, type: 2}
+--- !u!114 &-24956465178975144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5769771259130088380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805f1263fb1226c469934ab4b21b6100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
