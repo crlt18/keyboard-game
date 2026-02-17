@@ -8,16 +8,37 @@ public class Bombs : MonoBehaviour
     public List<GameObject> keyboard = new List<GameObject>();
     private float timer;
     private float levelTimer;
+    private float minimumSpawnInterval = 0.2f;
+    private float spawnIncrease = 1.2f;
+    private float nextSpeedUpTime; //for endless mode, increase of bomb spawn speed
 
+    [SerializeField] private float speedUpInterval = 10f;
     [SerializeField] private KeyManager keyManager;
     [SerializeField] private ObjectPooling targetPool;
     [SerializeField] private ObjectPooling bombPool;
+
+    void Start()
+    {
+        nextSpeedUpTime = speedUpInterval;
+    }
 
     private void Update()
     {
         levelTimer += Time.deltaTime;
 
-        if (GameManager.Instance.levelDuration > levelTimer)
+        if (GameManager.Instance.gameMode == GameManager.GameMode.Endless)
+        {
+            if (levelTimer >= nextSpeedUpTime)
+            {
+                if (minimumSpawnInterval < GameManager.Instance.spawnInterval)
+                {
+                    GameManager.Instance.spawnInterval /= spawnIncrease;
+                    nextSpeedUpTime += speedUpInterval;
+                }
+            }
+        }
+
+        if (GameManager.Instance.levelDuration < 0 || GameManager.Instance.levelDuration > levelTimer)  //allows endless mode to run infinitely
         {
             if (keyboard.Count < 1)
             {

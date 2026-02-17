@@ -54,6 +54,10 @@ public class GameManager : MonoBehaviour
             case GameMode.Story:
                 StoryModeSettings();
                 break;
+            
+            case GameMode.Endless:
+                EndlessModeSettings();
+                break;
 
         }
     }
@@ -83,7 +87,7 @@ public class GameManager : MonoBehaviour
             case 1: // easy
                 spawnInterval = 2.0f;
                 bombLife = 1.95f;
-                levelDuration = 5f;
+                levelDuration = 30f;
                 break;
             case 2: // normal
                 spawnInterval = 0.5f;
@@ -93,5 +97,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void EndlessModeSettings()
+    {
+        Dictionary.Instance.SetActiveWords(levelWordLists[0]);
+
+        switch (level)
+        {
+            case 1: // easy
+                spawnInterval = 2.0f;
+                bombLife = 1.95f;
+                levelDuration =-1f;
+                break;
+            case 2: // normal
+                spawnInterval = 0.5f;
+                bombLife = 0.7f;
+                levelDuration = -1f;
+                break;
+        }
+    }
 
 }
